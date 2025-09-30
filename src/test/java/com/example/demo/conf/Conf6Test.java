@@ -10,6 +10,9 @@ public class Conf6Test extends FacadeIT {
   @Value("${api.key}")
   private String apiKey;
 
+  @Value("${another.key}")
+  private String anotherKey;
+
   @Test
   void is_api_key_ok() {
     var trueSecret = "dummy";
@@ -18,7 +21,19 @@ public class Conf6Test extends FacadeIT {
 
   @Test
   void is_api_key_ko() {
-    var trueSecret = "dummy";
+    var trueSecret = "dummyTsyMarina";
     assertNotEquals(trueSecret, apiKey);
+  }
+
+  @Test
+  void is_another_key_ok() {
+    var trueSecret = "anotherDummy";
+    assertEquals(trueSecret, anotherKey);
+  }
+
+  @Test
+  void is_another_key_ko() {
+    var trueSecret = "AAA";
+    assertNotEquals(trueSecret, anotherKey);
   }
 }
