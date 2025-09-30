@@ -48,7 +48,7 @@ public class Conf6Test extends FacadeIT {
 
   @Test
   void is_test_key_ko() {
-    var trueSecret = "123456789";
+    var trueSecret = "12345678910";
     assertNotEquals(trueSecret, testKey);
   }
 }
