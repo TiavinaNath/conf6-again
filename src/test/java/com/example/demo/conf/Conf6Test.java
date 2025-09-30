@@ -18,7 +18,7 @@ public class Conf6Test extends FacadeIT {
 
   @Test
   void is_api_key_ko() {
-    var trueSecret = "dummyDiso";
+    var trueSecret = "dummy";
     assertNotEquals(trueSecret, apiKey);
   }
 }
