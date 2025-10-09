@@ -38,6 +38,12 @@ jobs:
               (github.ref == 'refs/heads/prod') && secrets.PROD_TEST_KEY ||
               (github.ref == 'refs/heads/preprod') && secrets.PREPROD_TEST_KEY
               }}
+      HAFA: ${{
+              (github.event_name == 'pull_request' && github.base_ref == 'prod') && secrets.PROD_HAFA ||
+              (github.event_name == 'pull_request' && github.base_ref == 'preprod') && secrets.PREPROD_HAFA ||
+              (github.ref == 'refs/heads/prod') && secrets.PROD_HAFA ||
+              (github.ref == 'refs/heads/preprod') && secrets.PREPROD_HAFA
+              }}
 
 
     steps:
