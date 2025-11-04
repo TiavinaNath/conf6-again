@@ -45,48 +45,6 @@ jobs:
               (github.ref == 'refs/heads/prod') && secrets.PROD_HAFA ||
               (github.ref == 'refs/heads/preprod') && secrets.PREPROD_HAFA
               }}
-      SPRING_DATASOURCE_USERNAME: ${{
-              (github.event_name == 'pull_request' && github.base_ref == 'prod') && secrets.PROD_SPRING_DATASOURCE_USERNAME ||
-              (github.event_name == 'pull_request' && github.base_ref == 'preprod') && secrets.PREPROD_SPRING_DATASOURCE_USERNAME ||
-              (github.ref == 'refs/heads/prod') && secrets.PROD_SPRING_DATASOURCE_USERNAME ||
-              (github.ref == 'refs/heads/preprod') && secrets.PREPROD_SPRING_DATASOURCE_USERNAME
-              }}
-      SPRING_DATASOURCE_PASSWORD: ${{
-              (github.event_name == 'pull_request' && github.base_ref == 'prod') && secrets.PROD_SPRING_DATASOURCE_PASSWORD ||
-              (github.event_name == 'pull_request' && github.base_ref == 'preprod') && secrets.PREPROD_SPRING_DATASOURCE_PASSWORD ||
-              (github.ref == 'refs/heads/prod') && secrets.PROD_SPRING_DATASOURCE_PASSWORD ||
-              (github.ref == 'refs/heads/preprod') && secrets.PREPROD_SPRING_DATASOURCE_PASSWORD
-              }}
-      SPRING_DATASOURCE_URL: ${{
-              (github.event_name == 'pull_request' && github.base_ref == 'prod') && secrets.PROD_SPRING_DATASOURCE_URL ||
-              (github.event_name == 'pull_request' && github.base_ref == 'preprod') && secrets.PREPROD_SPRING_DATASOURCE_URL ||
-              (github.ref == 'refs/heads/prod') && secrets.PROD_SPRING_DATASOURCE_URL ||
-              (github.ref == 'refs/heads/preprod') && secrets.PREPROD_SPRING_DATASOURCE_URL
-              }}
-      SENTRY_DSN: ${{
-              (github.event_name == 'pull_request' && github.base_ref == 'prod') && secrets.PROD_SENTRY_DSN ||
-              (github.event_name == 'pull_request' && github.base_ref == 'preprod') && secrets.PREPROD_SENTRY_DSN ||
-              (github.ref == 'refs/heads/prod') && secrets.PROD_SENTRY_DSN ||
-              (github.ref == 'refs/heads/preprod') && secrets.PREPROD_SENTRY_DSN
-              }}
-      SONAR_ORG: ${{
-              (github.event_name == 'pull_request' && github.base_ref == 'prod') && secrets.PROD_SONAR_ORG ||
-              (github.event_name == 'pull_request' && github.base_ref == 'preprod') && secrets.PREPROD_SONAR_ORG ||
-              (github.ref == 'refs/heads/prod') && secrets.PROD_SONAR_ORG ||
-              (github.ref == 'refs/heads/preprod') && secrets.PREPROD_SONAR_ORG
-              }}
-      SONAR_PJ_KEY: ${{
-              (github.event_name == 'pull_request' && github.base_ref == 'prod') && secrets.PROD_SONAR_PJ_KEY ||
-              (github.event_name == 'pull_request' && github.base_ref == 'preprod') && secrets.PREPROD_SONAR_PJ_KEY ||
-              (github.ref == 'refs/heads/prod') && secrets.PROD_SONAR_PJ_KEY ||
-              (github.ref == 'refs/heads/preprod') && secrets.PREPROD_SONAR_PJ_KEY
-              }}
-      SONAR_PJ_NAME: ${{
-              (github.event_name == 'pull_request' && github.base_ref == 'prod') && secrets.PROD_SONAR_PJ_NAME ||
-              (github.event_name == 'pull_request' && github.base_ref == 'preprod') && secrets.PREPROD_SONAR_PJ_NAME ||
-              (github.ref == 'refs/heads/prod') && secrets.PROD_SONAR_PJ_NAME ||
-              (github.ref == 'refs/heads/preprod') && secrets.PREPROD_SONAR_PJ_NAME
-              }}
 
 
     steps:
