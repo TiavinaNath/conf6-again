@@ -12,6 +12,7 @@ import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 
 @PojaGenerated
+@SuppressWarnings("all")
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 @Slf4j
 public class FacadeIT {
@@ -32,8 +33,12 @@ public class FacadeIT {
   @DynamicPropertySource
   static void configureProperties(DynamicPropertyRegistry registry) {
     POSTGRES_CONF.configureProperties(registry);
+    new EventConf().configureProperties(registry);
     new BucketConf().configureProperties(registry);
     new EmailConf().configureProperties(registry);
+
+    registry.add("sentry.dsn", () -> "https://public@sentry.example.com/1");
+    registry.add("sentry.environment", () -> "dummy");
 
     try {
       var envConfClazz = Class.forName("com.example.demo.conf.EnvConf");
